@@ -1,7 +1,7 @@
 package menus;
 
 import Service.DonorService;
-import Design.DesignUtils;
+import utils.DesignUtils;
 
 public class DonorMenu extends BaseMenu {
     private DonorService donorService = new DonorService();
@@ -15,7 +15,7 @@ public class DonorMenu extends BaseMenu {
 
     @Override
     public void displayMenu() {
-        DesignUtils.printHeader("D O N O R", username);
+        DesignUtils.printHeader("donor", username);
         System.out.println("\n--- Donor Menu ---\n");
         System.out.println("1. Donate Item");
         System.out.println("2. View My Donated Items");

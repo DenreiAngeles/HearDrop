@@ -1,11 +1,9 @@
 package Database;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.Scanner;
-import Design.DesignUtils;
+import utils.DesignUtils;
+import utils.LogUtils;
 
 public class HearDropDB {
     private static final String URL = "jdbc:mysql://localhost:3306/";
@@ -21,8 +19,9 @@ public class HearDropDB {
 
     public static Connection getConnection() {
         try {
-            return attemptConnection(URL+DBNAME, USER, PASSWORD); 
+            return attemptConnection(URL + DBNAME, USER, PASSWORD);
         } catch (SQLException e) {
+            LogUtils.logError(e);  
             System.out.println("Error: Unable to establish a connection. Please check your credentials.");
         }
         return null;
@@ -31,8 +30,9 @@ public class HearDropDB {
     private static Connection attemptConnection(String URL, String USER, String PASSWORD) throws SQLException {
         Connection conn = null;
         try {
-            conn = DriverManager.getConnection(URL, USER, PASSWORD);  
+            conn = DriverManager.getConnection(URL, USER, PASSWORD);
         } catch (SQLException e) {
+            LogUtils.logError(e); 
             System.out.println("Error: Unable to establish a database connection. Please check your credentials.");
             return connectionDetails();
         }
@@ -56,6 +56,7 @@ public class HearDropDB {
             try {
                 return attemptConnection(URL, USER, PASSWORD);
             } catch (SQLException e) {
+                LogUtils.logError(e); 
                 System.out.println("Incorrect credentials. Please try again.");
             }
         }
@@ -65,11 +66,9 @@ public class HearDropDB {
         try (Connection conn = getConnectionToServer(); Statement stmt = conn.createStatement()) {
     
             String createDatabase = "CREATE DATABASE IF NOT EXISTS " + "HearDrop";
-            System.out.println("Executing SQL: " + createDatabase);
             stmt.execute(createDatabase);
     
             String useDatabase = "USE HearDrop";
-            System.out.println("Executing SQL: " + useDatabase);
             stmt.execute(useDatabase);
     
             String createUsersTable = "CREATE TABLE IF NOT EXISTS Users (" +
@@ -96,10 +95,13 @@ public class HearDropDB {
             System.out.println("=========================");
             System.out.println("Database setup completed!");
             System.out.println("=========================\n");
-            System.out.print("Please Wait...");
+            System.out.print("Please Wait...\n");
             DesignUtils.clearScreen(2000);
+            DesignUtils.printStart();
+
     
         } catch (SQLException e) {
+            LogUtils.logError(e);  
             System.out.println("Error: Failed to set up the database. Please check your database connection.");
         }
     }

@@ -1,7 +1,7 @@
 package menus;
 
-import Design.DesignUtils;
 import Service.RecipientService;
+import utils.DesignUtils;
 
 public class RecipientMenu extends BaseMenu {
     private RecipientService recipientService = new RecipientService();
@@ -13,7 +13,7 @@ public class RecipientMenu extends BaseMenu {
 
     @Override
     public void displayMenu() {
-        DesignUtils.printHeader("R E C I P I E N T", recipientUsername);
+        DesignUtils.printHeader("recipient", recipientUsername);
         System.out.println("\n--- Recipient Menu ---\n");
         System.out.println("1. View Available Items");
         System.out.println("2. Reserve Item");
