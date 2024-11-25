@@ -45,6 +45,7 @@ public class RecipientService {
         try {
             DesignUtils.clearScreen(1000);
             System.out.println("\n--- Reserve Item ---");
+            System.out.println("\033[3mNote: You can exit by typing 'exit' or '0'.\033[0m\n");
             List<Donation> donations = donationDAO.getAvailableDonations();
             if (donations.isEmpty()) {
                 System.out.println("No available items.\n");
@@ -61,7 +62,22 @@ public class RecipientService {
             }
 
             System.out.print("\nEnter ID of the item to reserve: ");
-            int id = Integer.parseInt(scanner.nextLine());
+            String idInput = scanner.nextLine();
+
+            if (DesignUtils.isExitInput(idInput)) {
+                return;
+            }
+            int id;
+            try {
+                id = Integer.parseInt(idInput);
+                if (id <= 0) {
+                    System.out.println("ID cannot be 0. Please try again.");
+                    return;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please enter a valid number.");
+                return;
+            }
 
             Donation donation = donationDAO.getDonationById(id);
             if (donation == null || !"Available".equals(donation.getStatus())) {
@@ -71,10 +87,16 @@ public class RecipientService {
 
             System.out.print("Enter pickup date (yyyy-mm-dd): ");
             String pickupDate = scanner.nextLine();
+            if (DesignUtils.isExitInput(pickupDate)) {
+                return;
+            }
 
             System.out.println("\033[3mNote: Time is in 24-hour format.\033[0m");
             System.out.print("Enter the pickup time (HH:mm): ");
             String pickupTime = scanner.nextLine();
+            if (DesignUtils.isExitInput(pickupTime)) {
+                return;
+            }
 
             String fullDateTime = pickupDate + " " + pickupTime + ":00";
 
@@ -132,6 +154,7 @@ public class RecipientService {
         try {
             DesignUtils.clearScreen(1000);
             System.out.println("\n--- Remove Reserved Item ---");
+            System.out.println("\033[3mNote: You can exit by typing 'exit' or '0'.\033[0m\n");
             var donations = donationDAO.getDonationsByRecipient(recipientUsername);
 
             if (donations.isEmpty()) {
@@ -151,7 +174,22 @@ public class RecipientService {
             }
 
             System.out.print("\nEnter the ID of the item to remove: ");
-            int id = Integer.parseInt(scanner.nextLine());
+            String idInput = scanner.nextLine();
+
+            if (DesignUtils.isExitInput(idInput)) {
+                return;
+            }
+            int id;
+            try {
+                id = Integer.parseInt(idInput);
+                if (id <= 0) {
+                    System.out.println("ID cannot be 0. Please try again.");
+                    return;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please enter a valid number.");
+                return;
+            }
 
             Donation donation = donationDAO.getDonationById(id);
             if (donation == null) {

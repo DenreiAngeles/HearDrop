@@ -14,18 +14,45 @@ public class DonorService {
 
         try {
             DesignUtils.clearScreen(1000);
+            
             System.out.println("\n--- Donate Item ---");
+            System.out.println("\033[3mNote: You can exit by typing 'exit' or '0'.\033[0m\n");
             System.out.print("Enter item name: ");
             String itemName = scanner.nextLine();
+            if (DesignUtils.isExitInput(itemName)) {
+                return;
+            }
 
             System.out.print("Enter description: ");
             String description = scanner.nextLine();
+            if (DesignUtils.isExitInput(description)) {
+                return;
+            }
 
             System.out.print("Enter quantity(must be a digit): ");
-            int quantity = Integer.parseInt(scanner.nextLine());
+            String quantityInput = scanner.nextLine();
+
+            if (DesignUtils.isExitInput(quantityInput)) {
+                return;
+            }
+
+            int quantity;
+            try {
+                quantity = Integer.parseInt(quantityInput);
+                if (quantity <= 0) {
+                    System.out.println("Quantity must be greater than 0. Please try again.");
+                    return;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please enter a valid number.");
+                return;
+            }
 
             System.out.print("Enter pickup location: ");
             String pickupLocation = scanner.nextLine();
+            if (DesignUtils.isExitInput(pickupLocation)) {
+                return;
+            }
 
             Donation donation = new Donation(0, donorId, itemName, description, quantity, pickupLocation, "Available", null, null, username);
 
@@ -83,6 +110,8 @@ public class DonorService {
         try {
             DesignUtils.clearScreen(1000);
             System.out.println("\n--- Edit Donated Items ---");
+            System.out.println("\033[3mNote: You can exit by typing 'exit' or '0'.\033[0m");
+            System.out.println("\033[3mNote: If none is listed, it must mean that your donations were reserved and cannot be edited.\033[0m\n");
             var donations = donationDAO.getDonationsByDonor(donorId);
 
             if (donations.isEmpty()) {
@@ -97,8 +126,23 @@ public class DonorService {
                 }
             }
 
-            System.out.print("Enter ID of the item to edit: ");
-            int id = Integer.parseInt(scanner.nextLine());
+            System.out.print("\nEnter ID of the item to edit: ");
+            String idInput = scanner.nextLine();
+
+            if (DesignUtils.isExitInput(idInput)) {
+                return;
+            }
+            int id;
+            try {
+                id = Integer.parseInt(idInput);
+                if (id <= 0) {
+                    System.out.println("ID cannot be 0. Please try again.");
+                    return;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please enter a valid number.");
+                return;
+            }
 
             Donation donation = donationDAO.getDonationById(id);
             if (donation == null || !"Available".equals(donation.getStatus())) {
@@ -111,15 +155,24 @@ public class DonorService {
             if (!itemName.isEmpty()) {
                 donation.setItemName(itemName);
             }
+            if (DesignUtils.isExitInput(itemName)) {
+                return;
+            }
 
             System.out.print("Enter new description (leave blank to keep current): ");
             String description = scanner.nextLine();
             if (!description.isEmpty()) {
                 donation.setDescription(description);
             }
+            if (DesignUtils.isExitInput(description)) {
+                return;
+            }
 
             System.out.print("Enter new quantity (leave blank to keep current): ");
             String quantityInput = scanner.nextLine();
+            if (DesignUtils.isExitInput(quantityInput)) {
+                return;
+            }
             if (!quantityInput.isEmpty()) {
                 donation.setQuantity(Integer.parseInt(quantityInput));
             }
@@ -128,6 +181,9 @@ public class DonorService {
             String pickupLocation = scanner.nextLine();
             if (!pickupLocation.isEmpty()) {
                 donation.setPickupLocation(pickupLocation);
+            }
+            if (DesignUtils.isExitInput(pickupLocation)) {
+                return;
             }
 
             if (donationDAO.updateDonation(donation)) {
@@ -152,6 +208,7 @@ public class DonorService {
 
             DesignUtils.clearScreen(1000);
             System.out.println("\n--- Remove Donated Item ---");
+            System.out.println("\033[3mNote: You can exit by typing 'exit' or '0'.\033[0m\n");
             if (donations.isEmpty()) {
                 System.out.println("No donations found.\n");
             } else {
@@ -171,8 +228,23 @@ public class DonorService {
                 }
             }
 
-            System.out.print("Enter the ID of the item to remove: ");
-            int id = Integer.parseInt(scanner.nextLine());
+            System.out.print("\nEnter the ID of the item to remove: ");
+            String idInput = scanner.nextLine();
+
+            if (DesignUtils.isExitInput(idInput)) {
+                return;
+            }
+            int id;
+            try {
+                id = Integer.parseInt(idInput);
+                if (id <= 0) {
+                    System.out.println("ID cannot be 0. Please try again.");
+                    return;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please enter a valid number.");
+                return;
+            }
 
             Donation donation = donationDAO.getDonationById(id);
             if (donation == null) {

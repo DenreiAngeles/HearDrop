@@ -3,41 +3,13 @@ package DAO;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import Database.HearDropDB;
 
 public abstract class BaseDAO<T> {
-    private static final String URL = "jdbc:mysql://localhost:3306/";
-    private static final String DBNAME = "HearDrop";
-    private static final String USER = "root";
-    private static final String PASSWORD = "dormantpig1";
-
     protected Connection connection;
 
     public BaseDAO() {
-        try {
-            connection = getConnectionToServer();
-            createDatabaseIfNeeded(connection);
-            connection = DriverManager.getConnection(URL + DBNAME, USER, PASSWORD);
-        } catch (SQLException e) {
-            System.out.println("Error: Unable to establish a connection to the database. Please check your database settings.");
-            logError("Database connection error", e);
-        }
-    }
-
-    private static Connection getConnectionToServer() throws SQLException {
-        String url = "jdbc:mysql://localhost:3306";
-        return DriverManager.getConnection(url, USER, PASSWORD);
-    }
-
-    private void createDatabaseIfNeeded(Connection conn) throws SQLException {
-        try (Statement stmt = conn.createStatement()) {
-            String createDatabaseSQL = "CREATE DATABASE IF NOT EXISTS " + DBNAME;
-            stmt.execute(createDatabaseSQL);
-            stmt.execute("USE " + DBNAME);
-        } catch (SQLException e) {
-            System.out.println("Error: Unable to create or access the database '" + DBNAME + "'.");
-            logError("Database creation error", e);
-            throw e;
-        }
+        connection = HearDropDB.getConnection();
     }
 
     protected abstract T mapResultSetToObject(ResultSet rs) throws SQLException;
