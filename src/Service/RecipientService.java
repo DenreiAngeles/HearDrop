@@ -3,16 +3,19 @@ package Service;
 import java.util.List;
 import java.util.Scanner;
 import DAO.DonationDAO;
-import models.Donation;
-import utils.DesignUtils;
-import utils.LogUtils;
+import Models.Donation;
+import Utils.DesignUtils;
+import Utils.LogUtils;
 
 public class RecipientService {
     private DonationDAO donationDAO = new DonationDAO();
+    private Scanner scanner;
 
+    public RecipientService(Scanner scanner) {
+        this.scanner = scanner;
+    }
+    
     public void viewAvailableItems() {
-        Scanner scanner = new Scanner(System.in);
-
         try {
             DesignUtils.clearScreen(1000);
             System.out.println("\n--- View Available Items ---");
@@ -40,8 +43,6 @@ public class RecipientService {
     }
 
     public void reserveItem(String recipientUsername) {
-        Scanner scanner = new Scanner(System.in);
-
         try {
             DesignUtils.clearScreen(1000);
             System.out.println("\n--- Reserve Item ---");
@@ -119,8 +120,6 @@ public class RecipientService {
     }
 
     public void viewMyReservedItems(String recipientUsername) {
-        Scanner scanner = new Scanner(System.in);
-
         try {
             DesignUtils.clearScreen(1000);
             System.out.println("\n--- My Reserved Items ---");
@@ -149,8 +148,6 @@ public class RecipientService {
     }
 
     public void removeReservedItem(String recipientUsername) {
-        Scanner scanner = new Scanner(System.in);
-
         try {
             DesignUtils.clearScreen(1000);
             System.out.println("\n--- Remove Reserved Item ---");

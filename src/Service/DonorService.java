@@ -2,16 +2,19 @@ package Service;
 
 import java.util.Scanner;
 import DAO.DonationDAO;
-import models.Donation;
-import utils.DesignUtils;
-import utils.LogUtils;
+import Models.Donation;
+import Utils.DesignUtils;
+import Utils.LogUtils;
 
 public class DonorService {
     private DonationDAO donationDAO = new DonationDAO();
+    private Scanner scanner;
 
+    public DonorService(Scanner scanner) {
+        this.scanner = scanner;
+    }
+    
     public void donateItem(int donorId, String username) {
-        Scanner scanner = new Scanner(System.in);
-
         try {
             DesignUtils.clearScreen(1000);
             
@@ -71,8 +74,6 @@ public class DonorService {
     }
 
     public void viewMyDonatedItems(int donorId) {
-        Scanner scanner = new Scanner(System.in);
-
         try {
             DesignUtils.clearScreen(1000);
             System.out.println("\n--- My Donated Items ---");
@@ -105,8 +106,6 @@ public class DonorService {
     }
 
     public void editDonatedItem(int donorId) {
-        Scanner scanner = new Scanner(System.in);
-
         try {
             DesignUtils.clearScreen(1000);
             System.out.println("\n--- Edit Donated Items ---");
@@ -201,8 +200,6 @@ public class DonorService {
     }
 
     public void removeDonatedItem(int donorId) {
-        Scanner scanner = new Scanner(System.in);
-
         try {
             var donations = donationDAO.getDonationsByDonor(donorId);
 

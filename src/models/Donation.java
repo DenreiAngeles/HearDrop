@@ -1,4 +1,4 @@
-package models;
+package Models;
 
 public class Donation {
     private int id;
@@ -11,9 +11,6 @@ public class Donation {
     private String recipientUsername;
     private String pickupDatetime;
     private String donorUsername;
-
-    public Donation() {
-    }
 
     public Donation(int id, int donorId, String itemName, String description, int quantity, String pickupLocation, String status, String recipientUsername, String pickupDatetime, String donorUsername) {
         this.id = id;

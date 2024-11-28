@@ -1,10 +1,10 @@
 package menus;
 
 import Service.DonorService;
-import utils.DesignUtils;
+import Utils.DesignUtils;
 
 public class DonorMenu extends BaseMenu {
-    private DonorService donorService = new DonorService();
+    private DonorService donorService = new DonorService(null);
     private int donorId;
     private String username;
 

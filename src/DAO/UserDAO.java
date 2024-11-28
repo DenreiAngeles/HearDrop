@@ -1,9 +1,9 @@
 package DAO;
 
-import models.User;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import Models.User;
 
 public class UserDAO extends BaseDAO<User> {
 

@@ -1,12 +1,17 @@
+package Main;
 import Service.UserService;
+import Utils.*;
+import Database.HearDropDB;
+
 import java.util.Scanner;
-import utils.*;
 
 public class Main {
     static Scanner scanner = new Scanner(System.in);
-    private static UserService userService = new UserService();
+    private static UserService userService;
 
     public static void main(String[] args) {
+        HearDropDB.getConnection();
+        userService = new UserService();
         DesignUtils.printStart();
 
         while (true) {

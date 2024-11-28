@@ -1,10 +1,10 @@
 package menus;
 
 import Service.RecipientService;
-import utils.DesignUtils;
+import Utils.DesignUtils;
 
 public class RecipientMenu extends BaseMenu {
-    private RecipientService recipientService = new RecipientService();
+    private RecipientService recipientService = new RecipientService(null);
     private String recipientUsername;
 
     public RecipientMenu(String recipientUsername) {

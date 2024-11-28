@@ -1,8 +1,9 @@
 package DAO;
 
-import models.Donation;
 import java.sql.*;
 import java.util.List;
+
+import Models.Donation;
 
 public class DonationDAO extends BaseDAO<Donation> {
 

@@ -2,14 +2,15 @@ package Database;
 
 import java.sql.*;
 import java.util.Scanner;
-import utils.DesignUtils;
-import utils.LogUtils;
+
+import Utils.DesignUtils;
+import Utils.LogUtils;
 
 public class HearDropDB {
     private static final String URL = "jdbc:mysql://localhost:3306/";
     private static final String DBNAME = "HearDrop"; 
     private static String USER = "root";            //you can change this to what you use in MySQL here for ease of access, but i added a feature so you can change this via the program.
-    private static String PASSWORD = "dormantpig1"; //you can also change this to your password of MySQL for a smooth run.
+    private static String PASSWORD = "dormantpig";    //you can also change this to your password of MySQL for a smooth run.
     static Scanner scan = new Scanner(System.in);
 
     public static Connection getConnection() {
@@ -17,7 +18,8 @@ public class HearDropDB {
             return attemptConnection(URL + DBNAME, USER, PASSWORD);
         } catch (SQLException e) {
             LogUtils.logError(e);
-            System.out.println("Error: Unable to connect to the database.");
+            System.out.println("Error: Unable to connect to the database. Initializing setup...");
+            DesignUtils.clearScreen(500);
             return null;
         }
     }
@@ -30,7 +32,10 @@ public class HearDropDB {
             }
             return conn;
         } catch (SQLException e) {
-            if (fullUrl.equals(URL + DBNAME)) {
+            if (e.getErrorCode() == 1045) {
+                System.out.println("Error: Incorrect MySQL username or password.");
+                retryConnection();
+            } else if (fullUrl.equals(URL + DBNAME)) {
                 System.out.println("Database not found. Initializing setup...");
                 DesignUtils.clearScreen(1000);
                 createDatabaseAndTables(user, password);
@@ -92,7 +97,8 @@ public class HearDropDB {
             if (!username.isEmpty()) USER = username;
 
             System.out.print("Enter MySQL Password                : ");
-            PASSWORD = scan.nextLine().trim();
+            String password = scan.nextLine().trim();
+            PASSWORD = password;
 
             try {
                 attemptConnection(URL+DBNAME, USER, PASSWORD);
