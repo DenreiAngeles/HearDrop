@@ -1,2 +1,3 @@
-# HereDrop-Dropping-Help-Where-It-s-Heard
-HearDrop is a simple program that allows donors to get in touch with those in need, thereby making the sharing of resources easier and that extends support to more communities.
+<a name="top"></a>
+![Project Logo]([https://example.com/logo.png](https://github.com/DenreiAngeles/HearDrop-Dropping-Help-Where-It-s-Heard/blob/main/HearDrop%20Banner/1.png))
+![Project Logo]([https://example.com/logo.png](https://github.com/DenreiAngeles/HearDrop-Dropping-Help-Where-It-s-Heard/blob/main/HearDrop%20Banner/2.png))
