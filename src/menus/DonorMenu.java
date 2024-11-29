@@ -1,10 +1,12 @@
 package menus;
 
+import java.util.Scanner;
 import Service.DonorService;
 import Utils.DesignUtils;
 
 public class DonorMenu extends BaseMenu {
-    private DonorService donorService = new DonorService(null);
+    Scanner scanner = new Scanner(System.in);
+    private DonorService donorService = new DonorService(scanner);
     private int donorId;
     private String username;
 

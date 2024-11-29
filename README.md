@@ -46,16 +46,22 @@ The system simplifies the donation process, ensuring efficient distribution of r
 ![Features](images/4.png)
 
 ### Donor Features 🫴
-- **Donate Item**: Add donation details such as item name, description, quantity and pickup location.
-- **View My Donated Items**: See a list of your donations and their statuses.
-- **Edit Donated Items**: Update item details or pickup locations.
-- **Remove Donated Items**: Remove your donations (can only be used if the donation status is still availble)
+| **Feature**           | **Description**                                                                 |
+|-----------------------|---------------------------------------------------------------------------------|
+| **Donate Item**          | Add donation details such as item name, description, quantity, and pickup location. |
+| **View My Donated Items** | See a list of your donations and their statuses.                                |
+| **Edit Donated Items**    | Update item details or pickup locations.                                        |
+| **Remove Donated Items**  | Remove your donations (can only be used if the donation status is still available). |
+
 
 ### Recipient Features 🫶
-- **View Available Donations**: Browse donations listed by donors that are still available to be reserved or claimed.
-- **Reserve Item**: Reserve an item with a specified pickup time.
-- **View My Reserved Items**: Track reserved items and their pickup details.
-- **Remove My Reserved Items**: Remove your reserved donations from your reservation list and will be updated as available again.
+| **Feature**            | **Description**                                                                 |
+|------------------------|---------------------------------------------------------------------------------|
+| **View Available Donations** | Browse donations listed by donors that are still available to be reserved or claimed. |
+| **Reserve Item**          | Reserve an item with a specified pickup time.                                  |
+| **View My Reserved Items** | Track reserved items and their pickup details.                                 |
+| **Remove My Reserved Items** | Remove your reserved donations from your reservation list; the items will be updated as available again. |
+
 
 ---
 ## How It Works ⚙️
@@ -63,27 +69,59 @@ The system simplifies the donation process, ensuring efficient distribution of r
 
 ### Step 1: User Registration  
 - Users register to the system with a unique username and a password.
+![register](videos/register.gif)
 
 ### Step 2: User Login  
 - Users log in with their registered credentials, then selecting their role as: **Donor** or **Recipient**.
+![login donor](videos/donor%20login.gif) 
+![recipient donor](videos/recipient%20login.gif)
 
 ### Step 3: Donor Workflow  
-1. **Add Donation**: Donors provide item details (e.g., name, description, quantity, and pickup location).  
-2. **View Donations**: Track all donated items and their statuses (available, reserved, etc.).  
+1. **Add Donation**: Donors provide item details (e.g., name, description, quantity, and pickup location).
+
+![add donation](videos/add%20donation.gif)  
+
+2. **View Donations**: Track all donated items and their statuses (available, reserved, etc.).
+
+![add donation](videos/add%20donation.gif)   
+
 3. **Edit Donations**: Modify item details or update pickup location.
 
+![edit donation](videos/edit%20donation.gif) 
+
+4. **Remove Donations**: Remove donated items as long as they are available.
+
+![remove donation](videos/remove%20donation.gif) 
+
 ### Step 4: Recipient Workflow  
-1. **View Donations**: Recipients browse available donations.  
-2. **Reserve Items**: Reserve an item and specify a pickup time.  
+1. **View Donations**: Recipients browse available donations.
+
+![view available donation](videos/view%20avail%20items.gif) 
+
+2. **Reserve Items**: Reserve an item and specify a pickup time.
+
+![reserve](videos/reserve.gif) 
+
 3. **Track Reservations**: View reserved items and their pickup details.
 
+![view reserve](videos/view%20reserve.gif) 
+
+4. **Remove Reservations**: Remove reserved items.
+
+![remove reserve](videos/remove%20reserve.gif) 
+
 ### Step 5: Database Management  
-- All user and donation data are stored in MySQL tables, ensuring persistence and integrity.  
+- All user and donation data are stored in MySQL tables, ensuring persistence and integrity.
+
+![sql user](images/sql-user.png)
+
+![sql user](images/sql-donation.png)
 
 ### Step 6: Status Updates  
 - Reserved items are marked with the recipient's username and pickup schedule.  
 - Donors can view the updated status of their donations.
 
+![sql user](images/not-available.png)
 
 
 ---
@@ -91,7 +129,7 @@ The system simplifies the donation process, ensuring efficient distribution of r
 ![Tech Used](images/6.png)
 
 - **Programming Language**: Java ☕
-- **Database Management System**: MySQL 🛢️
+- **Database Management System**: MySQL 🛢️🐬
 - **Utilities**: Java JDBC (Java SQL Connector)
 
 ---

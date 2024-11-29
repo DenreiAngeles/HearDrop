@@ -1,10 +1,13 @@
 package menus;
 
+import java.util.Scanner;
+
 import Service.RecipientService;
 import Utils.DesignUtils;
 
 public class RecipientMenu extends BaseMenu {
-    private RecipientService recipientService = new RecipientService(null);
+    Scanner scanner = new Scanner(System.in);
+    private RecipientService recipientService = new RecipientService(scanner);
     private String recipientUsername;
 
     public RecipientMenu(String recipientUsername) {

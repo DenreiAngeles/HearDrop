@@ -6,7 +6,7 @@ import java.util.List;
 import Database.HearDropDB;
 
 public abstract class BaseDAO<T> {
-    protected Connection connection;
+    private Connection connection;
 
     public BaseDAO() {
         connection = HearDropDB.getConnection();
