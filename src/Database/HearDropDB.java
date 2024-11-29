@@ -9,8 +9,8 @@ import Utils.LogUtils;
 public class HearDropDB {
     private static final String URL = "jdbc:mysql://localhost:3306/";
     private static final String DBNAME = "HearDrop"; 
-    private static String USER = "root";            //you can change this to what you use in MySQL here for ease of access, but i added a feature so you can change this via the program.
-    private static String PASSWORD = "dormantpig";    //you can also change this to your password of MySQL for a smooth run.
+    private static String USER = "root";            //you can change this to what you use in MySQL here for ease of access, but I added a feature so you can change this via the program.
+    private static String PASSWORD = "password";    //same for this (although I highly advise you change it both here now).
     static Scanner scan = new Scanner(System.in);
 
     public static Connection getConnection() {
