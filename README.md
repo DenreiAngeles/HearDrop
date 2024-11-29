@@ -413,7 +413,9 @@ You must have downloaded and has set-up the following in order to continue:
         - Navigate through the repository and download the `zip file`
         - Extract the `folder` inside the `zip file` then open it in your IDE.
 2. Navigate to the project directory:
-   - Dropdown `src` from the explorer and find the `Main` package.
+   - Dropdown `src` from the explorer and find and dropdown the `Database` package. (Optional but highly advised)
+   - Click on `HearDropDB.java` and update to your MySQL credentials of `USER` and `PASSWORD`. (Optional but highly advised)
+   - Find and dropdown `Main` package.
 3. Compile and run the program:
    - Click `Main.java`, then compile and run it.
 
