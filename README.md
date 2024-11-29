@@ -408,6 +408,7 @@ You must have downloaded and has set-up the following in order to continue:
             ```
         - Select the destination of where you want to clone the repository.
         - Open the cloned repository.
+          
    - **Option 2**:
         - Navigate through the repository and download the `zip file`
         - Extract the `folder` inside the `zip file` then open it in your IDE.
