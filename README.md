@@ -66,11 +66,14 @@ The system simplifies the donation process, ensuring efficient distribution of r
 
 ### Step 1: User Registration  
 - Users register to the system with a unique username and a password.
+
 ![register](videos/register.gif)
 
 ### Step 2: User Login  
 - Users log in with their registered credentials, then selecting their role as: **Donor** or **Recipient**.
-![login donor](videos/donor%20login.gif) 
+
+![login donor](videos/donor%20login.gif)
+
 ![recipient donor](videos/recipient%20login.gif)
 
 ### Step 3: Donor Workflow  
@@ -390,20 +393,29 @@ public class DonationDAO extends BaseDAO<Donation> {
 You must have downloaded and has set-up the following in order to continue:
 - Java Development Kit (JDK)
 - MySQL Server and JDBC (Java Connector)
-- IDE or Terminal
+- IDE or Terminal (Visual Studio Code)
+- Git (optional)
+- Github Account (optional)
 
 ### Installation
-1. Clone the repository:  
-   ```bash
-   git clone https://github.com/username/HearDrop.git
+1. Clone the repository:
+   - **Option 1**: (Git and a Github Account required.)
+        - Launch VS Code and open the command palette. Press `Ctrl+Shift+P`(Windows) or `Command+shift+P` (Mac) to open it.
+        - Type `Git: Clone` in the command palette and select it from the list of suggestions
+        - Copy and paste the following then hit `Enter`:
+            ```bash
+            https://github.com/DenreiAngeles/HearDrop.git
+            ```
+        - Select the destination of where you want to clone the repository.
+        - Open the cloned repository.
+   - **Option 2**:
+        - Navigate through the repository and download the `zip file`
+        - Extract the `folder` inside the `zip file` then open it in your IDE.
 2. Navigate to the project directory:
-   ```bash
-   cd HearDrop
+   - Dropdown `src` from the explorer and find the `Main` package.
 3. Compile and run the program:
-   ```bash
-   javac Main.java
-   java Main
-   ```
+   - Click `Main.java`, then compile and run it.
+
 ---
 ## System Modules 
 ![System Modules](images/9.png)
@@ -467,15 +479,15 @@ This project contains seven (7) packages and fifteen (15) modules all working to
 
 | **Class**           | **Package**  | **Description**                                                                                                                                                                                                 |
 |----------------------|--------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `BaseDAO<T>`         | DAO          | Abstract class that provides reusable CRUD operations (`add`, `getById`, `getList`, `update`, `remove`). Subclasses implement `mapResultSetToObject` to define how to map database results to specific objects. |
+| `BaseDAO`         | DAO          | Abstract class that provides reusable CRUD operations (`add`, `getById`, `getList`, `update`, `remove`). Subclasses implement `mapResultSetToObject` to define how to map database results to specific objects. |
 | `DonationDAO`        | DAO          | Extends `BaseDAO` to handle operations specific to `Donation` objects, such as retrieving donations by donor or recipient and updating donation details.                                                       |
 | `UserDAO`            | DAO          | Extends `BaseDAO` to manage operations related to `User`, such as user registration, login, and retrieving user details.                                                                                      |
-| `HearDropDB`         | Database     | Provides a singleton database connection for all DAO classes to interact with the database.                                                                                                                   |
+| `HearDropDB`         | Database     | Provides a singleton database connection for all `DAO` classes to interact with the database.                                                                                                                   |
 | `Donation`           | Models       | Represents a donation item, including its details like `item_name`, `quantity`, `pickup_location`, `status`, and donor/recipient information.                                                                |
 | `User`               | Models       | Represents a user in the system with attributes like `id`, `username`, and `password`.                                                                                                                        |
 | `BaseMenu`           | Menus        | Abstract class for menu interfaces. Defines a structure for displaying menus, handling user choices, and managing menu navigation.                                                                             |
-| `DonorMenu`          | Menus        | Extends `BaseMenu` to provide a menu interface for donors, including options to donate items, view donations, edit donations, and remove items.                                                               |
-| `RecipientMenu`      | Menus        | Extends `BaseMenu` to provide a menu interface for recipients, including options to view available items, reserve items, and manage their reservations.                                                        |
+| `DonorMenu`          | Menus        | Extends `BaseMenu` to provide a menu interface for donors, including options to `donate items`, `view donations`, `edit donations`, and `remove items`.                                                               |
+| `RecipientMenu`      | Menus        | Extends `BaseMenu` to provide a menu interface for recipients, including options to `view available items`, `reserve items`, and `manage their reservations`.                                                        |
 | `DesignUtils`        | Utils        | Provides utility methods for styling and formatting console output, such as headers and dividers.                                                                                                              |
 | `LogUtils`           | Utils        | Provides utility methods for logging errors and information to a file.                                                                                                                                         |
 | `Main`               | Main         | Entry point of the application. Handles user authentication and role-based menu redirection (donor or recipient).                                                                                              |
@@ -488,19 +500,24 @@ This project contains seven (7) packages and fifteen (15) modules all working to
 ---
 ## SDG Implementation 
 ![SDG Implementation](images/10.png)
+### This project has mainly focused on 2 Sustainable Development Goals which are:
 1. **Zero Hunger**: Facilitates the distribution of food and resources to those in need.
 2. **Responsible Consumption and Production**: Reduces waste by ensuring donations reach recipients effectively.
 ---
 ## Future Enhancements 
-![SDG Implementation](images/11.png)
-- Add real-time notifications for new donations or reservations.
-- Implement a web-based interface for broader accessibility.
-- Enhance reporting features for tracking donations and reservations.
+![Future Enhancements](images/11.png)
+- ### **Add** real-time notifications for new donations or reservations.
+- ### **Implement** a web-based interface for broader accessibility.
+- ### **Enhance** reporting features for tracking donations and reservations.
 
 [Back to Top](#project-overview)
 
 ---
 ## Project Developers 
+
+![Project Developers](images/12.png)
+
+ahahaha wala pa
 
 
 [Back to Top](#project-overview)
