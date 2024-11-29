@@ -9,39 +9,39 @@ The system simplifies the donation process, ensuring efficient distribution of r
 ---
 ![Table of Contents](images/2.png)
 ## Table of Contents 📚
-1. [Features](#features-✨)
-   - [Donor Features](#donor-features-🫴)
-   - [Recipient Features](#recipient-features-🫶)
-2. [How It Works](#how-it-works-⚙️)
+1. [Features](#features)
+   - [Donor Features](#donor-features)
+   - [Recipient Features](#recipient-features)
+2. [How It Works](#how-it-works)
    - [User Registration](#step-1-user-registration)
    - [User Login](#step-2-user-login)
    - [Donor Workflow](#step-3-donor-workflow)
    - [Recipient Workflow](#step-4-recipient-workflow)
    - [Database Management](#step-5-database-management)
    - [Status Updates](#step-6-status-updates)
-3. [Tech Used](#tech-used-💻)
-4. [OOP Principles](#oop-principles-🧩)
+3. [Tech Used](#tech-used)
+4. [OOP Principles](#oop-principles)
    - [Encapsulation](#encapsulation)
    - [Inheritance](#inheritance)
    - [Polymorphism](#polymorphism)
    - [Abstraction](#abstraction)
-5. [Setup Instructions](#setup-instructions-🔧)
+5. [Setup Instructions](#setup-instructions)
    - [Prerequisites](#prerequisites)
    - [Installation](#installation)
-6. [System Modules](#system-modules-🗂️)
+6. [System Modules](#system-modules)
    - [System Directory Structure](#system-directory-structure)
    - [Directory Explanation](#directory-explanation)
    - [Classes](#classes)
-7. [SDG Implementation](#sdg-implementation-🌍)
-8. [Future Enhancements](#future-enhancements-🚀)
-9. [Contributors](#contributors-🙌)
-10. [Back to Top](#project-overview-📖)
+7. [SDG Implementation](#sdg-implementation)
+8. [Future Enhancements](#future-enhancements)
+9. [Contributors](#contributors)
+10. [Back to Top](#project-overview)
 
 ---
-## Features ✨
+## Features 
 ![Features](images/4.png)
 
-### Donor Features 🫴
+### Donor Features 
 | **Feature**           | **Description**                                                                 |
 |-----------------------|---------------------------------------------------------------------------------|
 | **Donate Item**          | Add donation details such as item name, description, quantity, and pickup location. |
@@ -50,7 +50,7 @@ The system simplifies the donation process, ensuring efficient distribution of r
 | **Remove Donated Items**  | Remove your donations (can only be used if the donation status is still available). |
 
 
-### Recipient Features 🫶
+### Recipient Features 
 | **Feature**            | **Description**                                                                 |
 |------------------------|---------------------------------------------------------------------------------|
 | **View Available Donations** | Browse donations listed by donors that are still available to be reserved or claimed. |
@@ -58,10 +58,10 @@ The system simplifies the donation process, ensuring efficient distribution of r
 | **View My Reserved Items** | Track reserved items and their pickup details.                                 |
 | **Remove My Reserved Items** | Remove your reserved donations from your reservation list; the items will be updated as available again. |
 
-[Back to Top](#project-overview-📖)
+[Back to Top](#project-overview)
 
 ---
-## How It Works ⚙️
+## How It Works 
 ![How it Works](images/5.png)
 
 ### Step 1: User Registration  
@@ -120,20 +120,20 @@ The system simplifies the donation process, ensuring efficient distribution of r
 
 ![sql user](images/not-available.png)
 
-[Back to Top](#project-overview-📖)
+[Back to Top](#project-overview)
 
 ---
-## Tech Used 💻
+## Tech Used 
 ![Tech Used](images/6.png)
 
 - **Programming Language**: Java ☕
 - **Database Management System**: MySQL 🛢️🐬
 - **Utilities**: Java JDBC (Java SQL Connector)
 
-[Back to Top](#project-overview-📖)
+[Back to Top](#project-overview)
 
 ---
-## OOP Principles 🧩
+## OOP Principles 
 ![OOP Principles](images/7.png)
 
 ### Encapsulation
@@ -380,10 +380,10 @@ public class DonationDAO extends BaseDAO<Donation> {
 
 - `BaseDAO` abstracts common database operations like `add`, `getById`, `getList`, `update`, and `remove`, but the actual logic of mapping a `ResultSet` to a specific object (like `Donation` or `User`) is left to be implemented by subclasses. This approach encapsulates database operations while allowing specific entity classes to define how their data is mapped from the database.
 
-[Back to Top](#project-overview-📖)
+[Back to Top](#project-overview)
 
 ---
-## Setup Instructions 🔧
+## Setup Instructions 
 ![Setup Instructions](images/8.png)
 
 ### Prerequisites
@@ -405,7 +405,7 @@ You must have downloaded and has set-up the following in order to continue:
    java Main
    ```
 ---
-## System Modules 🗂️
+## System Modules 
 ![System Modules](images/9.png)
 ### System Directory Structure
 ```plaintext
@@ -483,25 +483,25 @@ This project contains seven (7) packages and fifteen (15) modules all working to
 | `UserService`        | Service      | Handles user-related business logic, such as registration, login validation, and retrieving user details, using `UserDAO`.                                                                                     |
 | `RecipientService`   | Service      | Contains business logic for managing recipient-related actions, such as reserving items, viewing available donations, and managing reservations, using `DonationDAO`.                                          |
 
-[Back to Top](#project-overview-📖)
+[Back to Top](#project-overview)
 
 ---
-## SDG Implementation 🌍
+## SDG Implementation 
 ![SDG Implementation](images/10.png)
 1. **Zero Hunger**: Facilitates the distribution of food and resources to those in need.
 2. **Responsible Consumption and Production**: Reduces waste by ensuring donations reach recipients effectively.
 ---
-## Future Enhancements 🚀
+## Future Enhancements 
 ![SDG Implementation](images/11.png)
 - Add real-time notifications for new donations or reservations.
 - Implement a web-based interface for broader accessibility.
 - Enhance reporting features for tracking donations and reservations.
 
-[Back to Top](#project-overview-📖)
+[Back to Top](#project-overview)
 
 ---
-## Project Developers 🙌
+## Project Developers 
 
 
-[Back to Top](#project-overview-📖)
+[Back to Top](#project-overview)
 
