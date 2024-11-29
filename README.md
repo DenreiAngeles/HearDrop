@@ -9,41 +9,36 @@ The system simplifies the donation process, ensuring efficient distribution of r
 ---
 ![Table of Contents](images/2.png)
 ## Table of Contents 📚
-1. <li><a href="features">Features ✨</a></li>
+1. [Features](#features-✨)
    - [Donor Features](#donor-features-🫴)
    - [Recipient Features](#recipient-features-🫶)
 2. [How It Works](#how-it-works-⚙️)
-   - [User Registration](#Step-1:-User-Registration)
-   - [User Login]()
-   - [Donor Workflow]()
-   - [Recipient Workflow]()
-   - [Database Management]()
-   - [Status Updates]()
+   - [User Registration](#step-1-user-registration)
+   - [User Login](#step-2-user-login)
+   - [Donor Workflow](#step-3-donor-workflow)
+   - [Recipient Workflow](#step-4-recipient-workflow)
+   - [Database Management](#step-5-database-management)
+   - [Status Updates](#step-6-status-updates)
 3. [Tech Used](#tech-used-💻)
 4. [OOP Principles](#oop-principles-🧩)
-   - [Encapsulation]()
-   - [Inheritance]()
-   - [Polymorphism]()
-   - [Abstraction]()
+   - [Encapsulation](#encapsulation)
+   - [Inheritance](#inheritance)
+   - [Polymorphism](#polymorphism)
+   - [Abstraction](#abstraction)
 5. [Setup Instructions](#setup-instructions-🔧)
-   - [Prerequisites]()
-   - [Installation]()
+   - [Prerequisites](#prerequisites)
+   - [Installation](#installation)
 6. [System Modules](#system-modules-🗂️)
-   - [DAO (Data Access Object)]()
-   - [Database]()
-   - [Main]()
-   - [Menus]()
-   - [Models]()
-   - [Service]()
-   - [Utils]()
+   - [System Directory Structure](#system-directory-structure)
+   - [Directory Explanation](#directory-explanation)
+   - [Classes](#classes)
 7. [SDG Implementation](#sdg-implementation-🌍)
 8. [Future Enhancements](#future-enhancements-🚀)
 9. [Contributors](#contributors-🙌)
-10. [Back to Top](#heardrop-dropping-help-where-its-heard-🌟)
+10. [Back to Top](#project-overview-📖)
 
 ---
-<h2 id="features">Features ✨</h2>
-
+## Features ✨
 ![Features](images/4.png)
 
 ### Donor Features 🫴
@@ -63,6 +58,7 @@ The system simplifies the donation process, ensuring efficient distribution of r
 | **View My Reserved Items** | Track reserved items and their pickup details.                                 |
 | **Remove My Reserved Items** | Remove your reserved donations from your reservation list; the items will be updated as available again. |
 
+[Back to Top](#project-overview-📖)
 
 ---
 ## How It Works ⚙️
@@ -124,6 +120,7 @@ The system simplifies the donation process, ensuring efficient distribution of r
 
 ![sql user](images/not-available.png)
 
+[Back to Top](#project-overview-📖)
 
 ---
 ## Tech Used 💻
@@ -132,6 +129,8 @@ The system simplifies the donation process, ensuring efficient distribution of r
 - **Programming Language**: Java ☕
 - **Database Management System**: MySQL 🛢️🐬
 - **Utilities**: Java JDBC (Java SQL Connector)
+
+[Back to Top](#project-overview-📖)
 
 ---
 ## OOP Principles 🧩
@@ -381,6 +380,7 @@ public class DonationDAO extends BaseDAO<Donation> {
 
 - `BaseDAO` abstracts common database operations like `add`, `getById`, `getList`, `update`, and `remove`, but the actual logic of mapping a `ResultSet` to a specific object (like `Donation` or `User`) is left to be implemented by subclasses. This approach encapsulates database operations while allowing specific entity classes to define how their data is mapped from the database.
 
+[Back to Top](#project-overview-📖)
 
 ---
 ## Setup Instructions 🔧
@@ -483,6 +483,8 @@ This project contains seven (7) packages and fifteen (15) modules all working to
 | `UserService`        | Service      | Handles user-related business logic, such as registration, login validation, and retrieving user details, using `UserDAO`.                                                                                     |
 | `RecipientService`   | Service      | Contains business logic for managing recipient-related actions, such as reserving items, viewing available donations, and managing reservations, using `DonationDAO`.                                          |
 
+[Back to Top](#project-overview-📖)
+
 ---
 ## SDG Implementation 🌍
 ![SDG Implementation](images/10.png)
@@ -494,8 +496,12 @@ This project contains seven (7) packages and fifteen (15) modules all working to
 - Add real-time notifications for new donations or reservations.
 - Implement a web-based interface for broader accessibility.
 - Enhance reporting features for tracking donations and reservations.
+
+[Back to Top](#project-overview-📖)
+
 ---
 ## Project Developers 🙌
 
 
+[Back to Top](#project-overview-📖)
 
