@@ -9,7 +9,7 @@ The system simplifies the donation process, ensuring efficient distribution of r
 ---
 ![Table of Contents](images/2.png)
 ## Table of Contents 📚
-1. [Features](#features-✨)
+1. <li><a href="features">Features ✨</a></li>
    - [Donor Features](#donor-features-🫴)
    - [Recipient Features](#recipient-features-🫶)
 2. [How It Works](#how-it-works-⚙️)
@@ -42,7 +42,8 @@ The system simplifies the donation process, ensuring efficient distribution of r
 10. [Back to Top](#heardrop-dropping-help-where-its-heard-🌟)
 
 ---
-## Features ✨
+<h2 id="features">Features ✨</h2>
+
 ![Features](images/4.png)
 
 ### Donor Features 🫴
