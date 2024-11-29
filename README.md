@@ -13,13 +13,29 @@ The system simplifies the donation process, ensuring efficient distribution of r
    - [Donor Features](#donor-features-🫴)
    - [Recipient Features](#recipient-features-🫶)
 2. [How It Works](#how-it-works-⚙️)
-   - [User Roles](#user-roles)
-   - [Donation Management](#donation-management)
-   - [Reservation Process](#reservation-process)
+   - [User Registration](#Step-1:-User-Registration)
+   - [User Login]()
+   - [Donor Workflow]()
+   - [Recipient Workflow]()
+   - [Database Management]()
+   - [Status Updates]()
 3. [Tech Used](#tech-used-💻)
 4. [OOP Principles](#oop-principles-🧩)
+   - [Encapsulation]()
+   - [Inheritance]()
+   - [Polymorphism]()
+   - [Abstraction]()
 5. [Setup Instructions](#setup-instructions-🔧)
+   - [Prerequisites]()
+   - [Installation]()
 6. [System Modules](#system-modules-🗂️)
+   - [DAO (Data Access Object)]()
+   - [Database]()
+   - [Main]()
+   - [Menus]()
+   - [Models]()
+   - [Service]()
+   - [Utils]()
 7. [SDG Implementation](#sdg-implementation-🌍)
 8. [Future Enhancements](#future-enhancements-🚀)
 9. [Contributors](#contributors-🙌)
@@ -350,89 +366,97 @@ You must have downloaded and has set-up the following in order to continue:
    java Main
    ```
 ---
-![System Modules](images/9.png)
 ## System Modules 🗂️
+![System Modules](images/9.png)
+### System Directory Structure
 ```plaintext
-+-- src/
-    +-- DAO/
-    |   +-- BaseDAO.java
-    |   +-- DonationDAO.java
-    |   +-- UserDAO.java
-    |
-    +-- Database/
-    |   +-- HearDropDB.java
-    |
-    +-- Main/
-    |   +-- Main.java
-    |
-    +-- Menus/
-    |   +-- BaseMenu.java
-    |   +-- DonorMenu.java
-    |   +-- RecipientMenu.java
-    |
-    +-- Models/
-    |   +-- User.java
-    |   +-- Donation.java
-    |
-    +-- Service/
-    |   +-- DonationService.java
-    |   +-- RecipientService.java
-    |   +-- UserService.java
-    |
-    +-- Utils/
-        +-- DesignUtils.java
-        +-- LogUtils.java
+├── src/
+|   ├── DAO/
+|   |   ├── BaseDAO.java
+|   |   ├── DonationDAO.java
+|   |   └── UserDAO.java
+|   |
+|   ├── Database/
+|   |   └── HearDropDB.java
+|   |
+|   ├── Main/
+|   |   └── Main.java
+|   |
+|   ├── Menus/
+|   |   ├── BaseMenu.java
+|   |   ├── DonorMenu.java
+|   |   └── RecipientMenu.java
+|   |
+|   ├── Models/
+|   |   ├── User.java
+|   |   └── Donation.java
+|   |
+|   ├── Service/
+|   |   ├── DonationService.java
+|   |   ├── RecipientService.java
+|   |   └── UserService.java
+|   |
+|   └── Utils/
+|       ├── DesignUtils.java
+|       └── LogUtils.java
+|
 ```
-This project contains seven (7) subfolders and fifteen (15) modules all working together to run the system.
+This project contains seven (7) packages and fifteen (15) modules all working together to run the system.
 ### Directory Explanation
-- #### DAO (Data Access Object)
+- **DAO (Data Access Object)** -
     Contains data access objects for handling database operations related to `User` and `Donation`. The `BaseDAO` provides common CRUD (Create, Read, Update, Delete) functionalities.
-    ```plaintext
-    +-- DAO/
-    |   +-- BaseDAO.java
-    |   +-- DonationDAO.java
-    |   +-- UserDAO.java
-- #### Database
-    Houses the `HearDropDB` class for database connection and setup.
-    ```plaintext
-    +-- Database/
-    |   +-- HearDropDB.java
-- #### Main
-    Includes the entry point of the program `Main.java`.
-    ```plaintext
-    +-- Main/
-    |   +-- Main.java
-- #### Menus
-    Contains classes for user interface logic tailored to roles such as `DonorMenu` and `RecipientMenu` modeled with `BaseMenu`.
-    ```plaintext
-    +-- Menus/
-    |   +-- BaseMenu.java
-    |   +-- DonorMenu.java
-    |   +-- RecipientMenu.java
-- #### Models
-    Represents entities such as `User` and `Donation`.
-    ```plaintext
-    +-- Models/
-    |   +-- User.java
-    |   +-- Donation.java
-- #### Service
-    Provides business logic, such as handling donations (`DonationService`), recipient operations (`RecipientService`) and user operations (`UserService`).
-    1. `DonationService` includes `view`, `add`, `edit`, and `delete` functions for donors.
-    2. RecipientService includes `view available`, `reserve`, `view reserved`, and `delete` functions for recipients.
-    3. UserService inludes `register` and `login` functions for users.
-    ```plaintext
-    +-- Service/
-    |   +-- DonationService.java
-    |   +-- RecipientService.java
-    |   +-- UserService.java
-- #### Utils
-    Contains utility classes like `DesignUtils` for formatting and `LogUtils` for error logging.
-    ```plaintext
-    +-- Utils/
-        +-- DesignUtils.java
-        +-- LogUtils.java
----
 
+- **Database** -
+    Houses the `HearDropDB` class for database connection and setup.
+
+- **Main** -
+    Includes the entry point of the program `Main.java`.
+
+- **Menus** -
+    Contains classes for user interface logic tailored to roles such as `DonorMenu` and `RecipientMenu` modeled with `BaseMenu`.
+
+- **Models** -
+    Represents entities such as `User` and `Donation`.
+
+- **Service** -
+    Provides business logic, such as handling donations (`DonationService`), recipient operations (`RecipientService`) and user operations (`UserService`).
+
+- **Utils** -
+    Contains utility classes like `DesignUtils` for formatting and `LogUtils` for error logging.
+
+### Classes 
+
+| **Class**           | **Package**  | **Description**                                                                                                                                                                                                 |
+|----------------------|--------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `BaseDAO<T>`         | DAO          | Abstract class that provides reusable CRUD operations (`add`, `getById`, `getList`, `update`, `remove`). Subclasses implement `mapResultSetToObject` to define how to map database results to specific objects. |
+| `DonationDAO`        | DAO          | Extends `BaseDAO` to handle operations specific to `Donation` objects, such as retrieving donations by donor or recipient and updating donation details.                                                       |
+| `UserDAO`            | DAO          | Extends `BaseDAO` to manage operations related to `User`, such as user registration, login, and retrieving user details.                                                                                      |
+| `HearDropDB`         | Database     | Provides a singleton database connection for all DAO classes to interact with the database.                                                                                                                   |
+| `Donation`           | Models       | Represents a donation item, including its details like `item_name`, `quantity`, `pickup_location`, `status`, and donor/recipient information.                                                                |
+| `User`               | Models       | Represents a user in the system with attributes like `id`, `username`, and `password`.                                                                                                                        |
+| `BaseMenu`           | Menus        | Abstract class for menu interfaces. Defines a structure for displaying menus, handling user choices, and managing menu navigation.                                                                             |
+| `DonorMenu`          | Menus        | Extends `BaseMenu` to provide a menu interface for donors, including options to donate items, view donations, edit donations, and remove items.                                                               |
+| `RecipientMenu`      | Menus        | Extends `BaseMenu` to provide a menu interface for recipients, including options to view available items, reserve items, and manage their reservations.                                                        |
+| `DesignUtils`        | Utils        | Provides utility methods for styling and formatting console output, such as headers and dividers.                                                                                                              |
+| `LogUtils`           | Utils        | Provides utility methods for logging errors and information to a file.                                                                                                                                         |
+| `Main`               | Main         | Entry point of the application. Handles user authentication and role-based menu redirection (donor or recipient).                                                                                              |
+| `DonationService`    | Service      | Contains business logic for managing donations, such as creating, updating, and deleting donations, using `DonationDAO`.                                                                                       |
+| `UserService`        | Service      | Handles user-related business logic, such as registration, login validation, and retrieving user details, using `UserDAO`.                                                                                     |
+| `RecipientService`   | Service      | Contains business logic for managing recipient-related actions, such as reserving items, viewing available donations, and managing reservations, using `DonationDAO`.                                          |
+
+---
+## SDG Implementation 🌍
+![SDG Implementation](images/10.png)
+1. **Zero Hunger**: Facilitates the distribution of food and resources to those in need.
+2. **Responsible Consumption and Production**: Reduces waste by ensuring donations reach recipients effectively.
+---
+## Future Enhancements 🚀
+![SDG Implementation](images/11.png)
+- Add real-time notifications for new donations or reservations.
+- Implement a web-based interface for broader accessibility.
+- Enhance reporting features for tracking donations and reservations.
+---
+## Project Developers 🙌
 
 
 
