@@ -83,7 +83,7 @@ The system simplifies the donation process, ensuring efficient distribution of r
 
 2. **View Donations**: Track all donated items and their statuses (available, reserved, etc.).
 
-![add donation](videos/add%20donation.gif)   
+![add donation](videos/view%20donation.gif)   
 
 3. **Edit Donations**: Modify item details or update pickup location.
 
