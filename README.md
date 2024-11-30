@@ -74,7 +74,7 @@ The system simplifies the donation process, ensuring efficient distribution of r
 
 ![login donor](videos/donor%20login.gif)
 
-![recipient donor](videos/recipient%20login.gif)
+![recipient login](videos/recipient%20login.gif)
 
 ### Step 3: Donor Workflow  
 1. **Add Donation**: Donors provide item details (e.g., name, description, quantity, and pickup location).
