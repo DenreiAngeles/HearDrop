@@ -545,24 +545,76 @@ This project contains seven (7) packages and fifteen (15) modules all working to
 ---
 ## SDG Implementation 
 ![SDG Implementation](images/10.png)
-### This project has mainly focused on 2 Sustainable Development Goals which are:
-1. **Zero Hunger**: Facilitates the distribution of food and resources to those in need.
-2. **Responsible Consumption and Production**: Reduces waste by ensuring donations reach recipients effectively.
----
-## Future Enhancements 
-![Future Enhancements](images/11.png)
-- ### **Add** real-time notifications for new donations or reservations.
-- ### **Implement** a web-based interface for broader accessibility.
-- ### **Enhance** reporting features for tracking donations and reservations.
+
+### This project focuses on two key Sustainable Development Goals (SDGs):
+
+1. **Zero Hunger (SDG 2)**: 
+   - **Facilitates Equitable Distribution**: HearDrop helps bridge the gap between donors and recipients, ensuring that food and essential resources are distributed to those who need them most, thus contributing to the eradication of hunger.
+   - **Community Support**: By creating a platform for resource sharing, it empowers communities to support each other, enhancing food security and reducing hunger in vulnerable populations.
+   - **Local Engagement**: Encourages local involvement and volunteerism, fostering a sense of community and collective effort towards ending hunger.
+
+2. **Responsible Consumption and Production (SDG 12)**: 
+   - **Minimizes Waste**: HearDrop promotes the efficient use of resources by redirecting surplus food and goods from donors to recipients, thus minimizing waste and promoting sustainability.
+   - **Encourages Sustainable Practices**: By facilitating the donation and reuse of items, it supports sustainable consumption patterns, reducing the environmental impact of waste.
+   - **Resource Optimization**: Helps optimize the use of available resources, ensuring that useful items are not discarded but instead serve to meet the needs of others.
+
+### How HearDrop Achieves These Goals:
+
+- **User-Friendly Platform**: Provides an intuitive and accessible platform for users to donate and receive items easily, ensuring that the process of sharing resources is seamless and efficient.
+- **Tracking and Reporting**: Implements tracking of donations and their impact, allowing users to see the tangible benefits of their contributions and encouraging more consistent and meaningful participation.
+- **Educational Outreach**: Raises awareness about the importance of zero hunger and responsible consumption through educational materials and community engagement, fostering a culture of sustainability and empathy.
 
 [Back to Top](#project-overview)
 
 ---
-## Project Developers 
+## Future Enhancements 
+![Future Enhancements](images/11.png)
 
-![Project Developers](images/12.png)
+### **Add** Real-Time Notifications
+- Implement real-time notifications via email, SMS, or in-app messages to keep users informed about new donations, reservations, and updates.
 
-ahahaha wala pa
+### **Implement** a Web-Based Interface
+- Develop a web-based interface to provide broader accessibility, enabling users to access the platform from any device with an internet connection.
+
+### **Enhance** Reporting Features
+- Improve reporting features to provide detailed analytics and insights for tracking donations, reservations, and user engagement. This can help in understanding trends and optimizing the service.
+
+### **Integrate** with Social Media
+- Allow users to share their donations and activities on social media platforms to raise awareness and encourage community participation.
+
+### **Add** User Feedback and Ratings
+- Introduce a feedback system where users can rate their experience and provide suggestions. This can help in continuously improving the platform based on user insights.
+
+### **Implement** Advanced Security Features
+- Enhance security measures to protect user data, including two-factor authentication (2FA) and encryption for sensitive information.
+
+### **Expand** to Include More Resource Types
+- Extend the platform to accommodate a wider range of donation items, such as clothing, books, and household goods, to support a more diverse set of needs.
+
+### **Automate** Donation Pickup and Delivery Scheduling
+- Integrate a system for automated scheduling of donation pickups and deliveries, coordinating with local logistics providers to streamline the process.
+
+### **Create** Educational Resources
+- Develop and provide educational resources and guides on sustainable practices, the importance of donations, and how to maximize the impact of their contributions.
+
+### **Foster** Community Engagement
+- Organize community events and campaigns to promote the platform, engage with users, and build a stronger sense of community around the mission of helping those in need.
+
+
+[Back to Top](#project-overview)
+
+---
+## About the Developer
+
+Hey there! I'm **Denrei**, the sole developer behind HearDrop. HearDrop was born because of my Object-Oriented Programming (OOP) course. I was tasked to create a console program that would adhere OOP principles while attaining Sustainable Development Goals. So I did, and it has been a blast creating this project that could potentially be able to help not only me from my academics but also to the community.
+
+I designed HearDrop to facilitate resource sharing within communities, promoting sustainability and helping those in need. Although it only still has the basic components that I have planned on making, I'm passionate about developing it, and finishing it up to this point reflects that commitment.
+
+Developing this project has taught me a lot about the intricacies of software development, from database management to logic. Each step has been a learning experience and at times has really put my patience to the test, and it has pushed me to refine my skills and think critically about how best to serve the needs of users.
+
+I think I have said too much, anyway, thank you for taking the time to explore my project! This project represents not just a culmination of my coursework, but a stepping stone towards future endeavors in tech and community service and I hope by the time I come back here again, I have improved and be able to do better.
+
+Best regards, **Denrei Samuel Angeles**
 
 
 [Back to Top](#project-overview)
