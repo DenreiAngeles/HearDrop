@@ -175,11 +175,73 @@ public class User {
 ### Inheritance
 Inheritance allows a class to derive properties and behaviors from another class.
 
-Example: `DonorMenu` and `RecipientMenu` Classes Extending `BaseMenu`
+Example: `DonationDAO` and `UserDAO` Classes Extending `BaseDAO`
 
-- `BaseMenu.java`
+- `BaseDAO.java`
+```java
+public abstract class BaseDAO {
+    private Connection connection;
+
+    public BaseDAO() {
+        connection = HearDropDB.getConnection();
+    }
+
+    protected abstract Object mapResultSetToObject(ResultSet rs) throws SQLException;
+
+    // Other common CRUD operations
+}
+```
+- `DonationDAO` extends `BaseDAO`
+```java
+public class DonationDAO extends BaseDAO {
+
+    @Override
+    protected Donation mapResultSetToObject(ResultSet rs) throws SQLException {
+        return new Donation(
+            rs.getInt("id"),
+            rs.getInt("donor_id"),
+            rs.getString("item_name"),
+            rs.getString("description"),
+            rs.getInt("quantity"),
+            rs.getString("pickup_location"),
+            rs.getString("status"),
+            rs.getString("recipient_username"),
+            rs.getString("pickup_datetime"),
+            rs.getString("donor_username")
+        );
+    }
+
+    // Other methods specific to donations
+}
+```
+- `UserDAO` extends `BaseDAO`
+```java
+public class UserDAO extends BaseDAO {
+
+    @Override
+    protected User mapResultSetToObject(ResultSet rs) throws SQLException {
+        User user = new User();
+        user.setId(rs.getInt("id"));
+        user.setUsername(rs.getString("username"));
+        user.setPassword(rs.getString("password"));
+        return user;
+    }
+
+    // Other methods specific to users
+}
+```
+- Both `DonationDAO` and `UserDAO` inherit the common database operations from `BaseDAO` but provide their specific implementations for mapping result sets to their respective objects.
+---
+### Polymorphism
+Polymorphism allows one interface to be used for different data types or objects. Methods in derived classes can override the parent class's methods to provide specific implementations.
+
+Example: `DonorMenu` and `RecipientMenu` overriding `displayMenu` from `BaseMenu`
+
+- `BaseMenu`
 ```java
 public abstract class BaseMenu {
+    protected static Scanner scanner = new Scanner(System.in);
+
     public abstract void displayMenu();
 
     public abstract void handleChoice(int choice);
@@ -197,9 +259,12 @@ public abstract class BaseMenu {
             handleChoice(choice);
         }
     }
+
+    protected abstract int getExitChoice();
 }
+
 ```
-- `DonorMenu` extends `BaseMenu`
+- `DonorMenu` and `RecipientMenu` overriding `displayMenu`
 ```java
 public class DonorMenu extends BaseMenu {
     @Override
@@ -232,10 +297,13 @@ public class DonorMenu extends BaseMenu {
                 System.out.println("Invalid choice. Please try again.");
         }
     }
+
+    @Override
+    protected int getExitChoice() {
+        return 5;
+    }
 }
-```
-- `RecipientMenu` extends `BaseMenu`
-```java
+
 public class RecipientMenu extends BaseMenu {
     @Override
     public void displayMenu() {
@@ -267,64 +335,10 @@ public class RecipientMenu extends BaseMenu {
                 System.out.println("Invalid choice. Please try again.");
         }
     }
-}
-```
-- Both `DonorMenu` and `RecipientMenu` inherit the basic `show()` functionality from `BaseMenu` but override the `displayMenu()` method to show specific options for donors and recipients.
----
-### Polymorphism
-Polymorphism allows one interface to be used for different data types or objects. Methods in derived classes can override the parent class's methods to provide specific implementations.
 
-Example: `DonorMenu` and `RecipientMenu` overriding `displayMenu` from `BaseMenu`
-
-- `BaseMenu`
-```java
-public abstract class BaseMenu {
-    protected static Scanner scanner = new Scanner(System.in);
-
-    public abstract void displayMenu();
-
-    public abstract void handleChoice(int choice);
-
-    public void show() {
-        while (true) {
-            displayMenu();
-            System.out.print("Enter your choice: ");
-            int choice = Integer.parseInt(scanner.nextLine());
-
-            if (choice == getExitChoice()) {
-                return;
-            }
-
-            handleChoice(choice);
-        }
-    }
-}
-```
-- `DonorMenu` and `RecipientMenu` overriding `displayMenu`
-```java
-public class DonorMenu extends BaseMenu {
     @Override
-    public void displayMenu() {
-        DesignUtils.printHeader("donor", username);
-        System.out.println("\n--- Donor Menu ---\n");
-        System.out.println("1. Donate Item");
-        System.out.println("2. View My Donated Items");
-        System.out.println("3. Edit Donated Items");
-        System.out.println("4. Remove Donated Item");
-        System.out.println("5. Back to Main Menu");
-    }
-}
-
-public class RecipientMenu extends BaseMenu {
-    @Override
-    public void displayMenu() {
-        DesignUtils.printHeader("recipient", recipientUsername);
-        System.out.println("\n--- Recipient Menu ---\n");
-        System.out.println("1. View Available Items");
-        System.out.println("2. Reserve Item");
-        System.out.println("3. View My Reserved Items");
-        System.out.println("4. Remove Reserved Item");
-        System.out.println("5. Back to Main Menu");
+    protected int getExitChoice() {
+        return 5;
     }
 }
 ```
@@ -344,22 +358,50 @@ Abstraction hides implementation details from the user and only exposes essentia
 
 Example: `BaseDAO` implementing abstraction
 ```java
-public abstract class BaseDAO<T> {
-    protected Connection connection;
-
-    protected abstract T mapResultSetToObject(ResultSet rs) throws SQLException;
+public abstract class BaseDAO {
+    private Connection connection;
 
     public BaseDAO() {
         connection = HearDropDB.getConnection();
     }
 
-    // Other CRUD methods here
-    // They rely on the mapResultSetToObject method for retrieving data
+    protected abstract Object mapResultSetToObject(ResultSet rs) throws SQLException;
+
+    public boolean add(String query, Object... params) {
+        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+            setParameters(stmt, params);
+            return stmt.executeUpdate() > 0;
+        } catch (SQLException e) {
+            System.out.println("Error: Unable to execute the add operation.");
+            logError("Add operation error", e);
+        }
+        return false;
+    }
+
+    public <T> T getById(String query, Class<T> clazz, Object... params) {
+        try (PreparedStatement stmt = connection.prepareStatement(query)) {
+            setParameters(stmt, params);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return clazz.cast(mapResultSetToObject(rs));
+            } else {
+                System.out.println("No record found for the given criteria.");
+            }
+        } catch (SQLException e) {
+            System.out.println("Error: Unable to retrieve the record.");
+            logError("GetById operation error", e);
+        }
+        return null;
+    }
+
+    // Other CRUD methods
 }
+
 ```
 - `DonationDAO` implementing mapResultSetToObject method
 ```java
-public class DonationDAO extends BaseDAO<Donation> {
+public class DonationDAO extends BaseDAO {
+
     @Override
     protected Donation mapResultSetToObject(ResultSet rs) throws SQLException {
         return new Donation(
@@ -376,7 +418,7 @@ public class DonationDAO extends BaseDAO<Donation> {
         );
     }
 
-    // Other CRUD methods specific to donations
+    // Other methods specific to donations
 }
 
 ```
