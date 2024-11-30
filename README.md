@@ -32,10 +32,9 @@ The system simplifies the donation process, ensuring efficient distribution of r
    - [Directory Explanation](#directory-explanation)
    - [Classes](#classes)
 6. [SDG Implementation](#sdg-implementation)
-7. [Future Enhancements](#future-enhancements)
-8. [Tech Used](#tech-used)
-9. [About the Developer](#about-the-developer)
-10. [Back to Top](#project-overview)
+7. [Tech Used](#tech-used)
+8. [About the Developer](#about-the-developer)
+9. [Back to Top](#project-overview)
 
 ---
 ## Features 
