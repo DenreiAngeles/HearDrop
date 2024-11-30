@@ -1,25 +1,17 @@
 package DAO;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
+import java.sql.*;
 import Models.User;
 
-public class UserDAO extends BaseDAO<User> {
+public class UserDAO extends BaseDAO {
 
     @Override
-    protected User mapResultSetToObject(ResultSet rs) {
-        try {
-            User user = new User();
-            user.setId(rs.getInt("id"));
-            user.setUsername(rs.getString("username"));
-            user.setPassword(rs.getString("password"));
-            return user;
-        } catch (SQLException e) {
-            System.out.println("Error mapping ResultSet to User object.");
-            logError(e);
-            return null;
-        }
+    protected User mapResultSetToObject(ResultSet rs) throws SQLException {
+        User user = new User();
+        user.setId(rs.getInt("id"));
+        user.setUsername(rs.getString("username"));
+        user.setPassword(rs.getString("password"));
+        return user;
     }
 
     public boolean registerUser(User user) {
@@ -36,7 +28,7 @@ public class UserDAO extends BaseDAO<User> {
     public User loginUser(String username, String password) {
         String query = "SELECT * FROM Users WHERE username = ? AND password = ?";
         try {
-            return getById(query, username, password);
+            return getById(query, User.class, username, password);
         } catch (Exception e) {
             System.out.println("Error during login. Please try again.");
             logError(e);
@@ -47,7 +39,7 @@ public class UserDAO extends BaseDAO<User> {
     public User getUserByUsername(String username) {
         String query = "SELECT * FROM Users WHERE username = ?";
         try {
-            return getById(query, username);
+            return getById(query, User.class, username);
         } catch (Exception e) {
             System.out.println("Error retrieving user by username.");
             logError(e);

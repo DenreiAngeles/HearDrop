@@ -1,9 +1,9 @@
 package Service;
 
 import DAO.UserDAO;
+import Menus.*;
 import Models.User;
 import Utils.*;
-import menus.*;
 
 import java.util.Scanner;
 

@@ -5,14 +5,14 @@ import java.util.ArrayList;
 import java.util.List;
 import Database.HearDropDB;
 
-public abstract class BaseDAO<T> {
+public abstract class BaseDAO {
     private Connection connection;
 
     public BaseDAO() {
         connection = HearDropDB.getConnection();
     }
 
-    protected abstract T mapResultSetToObject(ResultSet rs) throws SQLException;
+    protected abstract Object mapResultSetToObject(ResultSet rs) throws SQLException;
 
     public boolean add(String query, Object... params) {
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
@@ -25,12 +25,12 @@ public abstract class BaseDAO<T> {
         return false;
     }
 
-    public T getById(String query, Object... params) {
+    public <T> T getById(String query, Class<T> clazz, Object... params) {
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
             setParameters(stmt, params);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
-                return mapResultSetToObject(rs);
+                return clazz.cast(mapResultSetToObject(rs));
             } else {
                 System.out.println("No record found for the given criteria.");
             }
@@ -41,13 +41,13 @@ public abstract class BaseDAO<T> {
         return null;
     }
 
-    public List<T> getList(String query, Object... params) {
+    public <T> List<T> getList(String query, Class<T> clazz, Object... params) {
         List<T> list = new ArrayList<>();
         try (PreparedStatement stmt = connection.prepareStatement(query)) {
             setParameters(stmt, params);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
-                list.add(mapResultSetToObject(rs));
+                list.add(clazz.cast(mapResultSetToObject(rs)));
             }
         } catch (SQLException e) {
             System.out.println("Error: Unable to retrieve the list of records.");

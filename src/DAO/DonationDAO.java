@@ -2,10 +2,9 @@ package DAO;
 
 import java.sql.*;
 import java.util.List;
-
 import Models.Donation;
 
-public class DonationDAO extends BaseDAO<Donation> {
+public class DonationDAO extends BaseDAO {
 
     @Override
     protected Donation mapResultSetToObject(ResultSet rs) throws SQLException {
@@ -32,22 +31,22 @@ public class DonationDAO extends BaseDAO<Donation> {
 
     public Donation getDonationById(int id) {
         String query = "SELECT * FROM donations WHERE id = ?";
-        return getById(query, id);
+        return getById(query, Donation.class, id);
     }
 
     public List<Donation> getDonationsByDonor(int donorId) {
         String query = "SELECT * FROM donations WHERE donor_id = ?";
-        return getList(query, donorId);
+        return getList(query, Donation.class, donorId);
     }
 
     public List<Donation> getAvailableDonations() {
         String query = "SELECT * FROM donations WHERE status = 'Available'";
-        return getList(query);
+        return getList(query, Donation.class);
     }
 
     public List<Donation> getDonationsByRecipient(String recipientUsername) {
         String query = "SELECT * FROM donations WHERE recipient_username = ?";
-        return getList(query, recipientUsername);
+        return getList(query, Donation.class, recipientUsername);
     }
 
     public boolean updateDonation(Donation donation) {
