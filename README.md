@@ -19,22 +19,22 @@ The system simplifies the donation process, ensuring efficient distribution of r
    - [Recipient Workflow](#step-4-recipient-workflow)
    - [Database Management](#step-5-database-management)
    - [Status Updates](#step-6-status-updates)
-3. [Tech Used](#tech-used)
-4. [OOP Principles](#oop-principles)
+3. [OOP Principles](#oop-principles)
    - [Encapsulation](#encapsulation)
    - [Inheritance](#inheritance)
    - [Polymorphism](#polymorphism)
    - [Abstraction](#abstraction)
-5. [Setup Instructions](#setup-instructions)
+4. [Setup Instructions](#setup-instructions)
    - [Prerequisites](#prerequisites)
    - [Installation](#installation)
-6. [System Modules](#system-modules)
+5. [System Modules](#system-modules)
    - [System Directory Structure](#system-directory-structure)
    - [Directory Explanation](#directory-explanation)
    - [Classes](#classes)
-7. [SDG Implementation](#sdg-implementation)
-8. [Future Enhancements](#future-enhancements)
-9. [Contributors](#contributors)
+6. [SDG Implementation](#sdg-implementation)
+7. [Future Enhancements](#future-enhancements)
+8. [Tech Used](#tech-used)
+9. [About the Developer](#about-the-developer)
 10. [Back to Top](#project-overview)
 
 ---
@@ -122,16 +122,6 @@ The system simplifies the donation process, ensuring efficient distribution of r
 - Donors can view the updated status of their donations.
 
 ![sql user](images/not-available.png)
-
-[Back to Top](#project-overview)
-
----
-## Tech Used 
-![Tech Used](images/6.png)
-
-- **Programming Language**: Java ☕
-- **Database Management System**: MySQL 🛢️🐬
-- **Utilities**: Java JDBC (Java SQL Connector)
 
 [Back to Top](#project-overview)
 
@@ -604,6 +594,17 @@ This project contains seven (7) packages and fifteen (15) modules all working to
 [Back to Top](#project-overview)
 
 ---
+## Tech Used 
+![Tech Used](images/6.png)
+
+- **Programming Language**: Java ☕
+- **Database Management System**: MySQL 🛢️🐬
+- **Utilities**: JDBC (Java Database Connectivity) 🔗
+
+[Back to Top](#project-overview)
+
+---
+
 ## About the Developer
 
 Hey there! I'm **Denrei**, the sole developer behind HearDrop. HearDrop was born because of my Object-Oriented Programming (OOP) course. I was tasked to create a console program that would adhere OOP principles while attaining Sustainable Development Goals. So I did, and it has been a blast creating this project that could potentially be able to help not only me from my academics but also to the community.
