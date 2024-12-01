@@ -32,10 +32,9 @@ The system simplifies the donation process, ensuring efficient distribution of r
    - [Directory Explanation](#directory-explanation)
    - [Classes](#classes)
 6. [SDG Implementation](#sdg-implementation)
-7. [Future Enhancements](#future-enhancements)
-8. [Tech Used](#tech-used)
-9. [About the Developer](#about-the-developer)
-10. [Back to Top](#project-overview)
+7. [Tech Used](#tech-used)
+8. [About the Developer](#about-the-developer)
+9. [Back to Top](#project-overview)
 
 ---
 ## Features 
@@ -74,7 +73,7 @@ The system simplifies the donation process, ensuring efficient distribution of r
 
 ![login donor](videos/donor%20login.gif)
 
-![recipient donor](videos/recipient%20login.gif)
+![recipient login](videos/Recipient%20login.gif)
 
 ### Step 3: Donor Workflow  
 1. **Add Donation**: Donors provide item details (e.g., name, description, quantity, and pickup location).
@@ -553,43 +552,6 @@ This project contains seven (7) packages and fifteen (15) modules all working to
 - **User-Friendly Platform**: Provides an intuitive and accessible platform for users to donate and receive items easily, ensuring that the process of sharing resources is seamless and efficient.
 - **Tracking and Reporting**: Implements tracking of donations and their impact, allowing users to see the tangible benefits of their contributions and encouraging more consistent and meaningful participation.
 - **Educational Outreach**: Raises awareness about the importance of zero hunger and responsible consumption through educational materials and community engagement, fostering a culture of sustainability and empathy.
-
-[Back to Top](#project-overview)
-
----
-## Future Enhancements 
-![Future Enhancements](images/11.png)
-
-### **Add** Real-Time Notifications
-- Implement real-time notifications via email, SMS, or in-app messages to keep users informed about new donations, reservations, and updates.
-
-### **Implement** a Web-Based Interface
-- Develop a web-based interface to provide broader accessibility, enabling users to access the platform from any device with an internet connection.
-
-### **Enhance** Reporting Features
-- Improve reporting features to provide detailed analytics and insights for tracking donations, reservations, and user engagement. This can help in understanding trends and optimizing the service.
-
-### **Integrate** with Social Media
-- Allow users to share their donations and activities on social media platforms to raise awareness and encourage community participation.
-
-### **Add** User Feedback and Ratings
-- Introduce a feedback system where users can rate their experience and provide suggestions. This can help in continuously improving the platform based on user insights.
-
-### **Implement** Advanced Security Features
-- Enhance security measures to protect user data, including two-factor authentication (2FA) and encryption for sensitive information.
-
-### **Expand** to Include More Resource Types
-- Extend the platform to accommodate a wider range of donation items, such as clothing, books, and household goods, to support a more diverse set of needs.
-
-### **Automate** Donation Pickup and Delivery Scheduling
-- Integrate a system for automated scheduling of donation pickups and deliveries, coordinating with local logistics providers to streamline the process.
-
-### **Create** Educational Resources
-- Develop and provide educational resources and guides on sustainable practices, the importance of donations, and how to maximize the impact of their contributions.
-
-### **Foster** Community Engagement
-- Organize community events and campaigns to promote the platform, engage with users, and build a stronger sense of community around the mission of helping those in need.
-
 
 [Back to Top](#project-overview)
 
