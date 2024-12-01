@@ -7,15 +7,15 @@ public abstract class BaseMenu {
 
     public abstract void displayMenu();
 
-    public abstract void handleChoice(int choice);
+    public abstract void handleChoice(String choice);
 
     public void show() {
         while (true) {
             displayMenu();
             System.out.print("Enter your choice: ");
-            int choice = Integer.parseInt(scanner.nextLine());
+            String choice = scanner.nextLine();
 
-            if (choice == getExitChoice()) {
+            if (choice.equals(getExitChoice())) {
                 return;
             }
 
@@ -23,5 +23,5 @@ public abstract class BaseMenu {
         }
     }
 
-    protected abstract int getExitChoice();
+    protected abstract String getExitChoice();
 }

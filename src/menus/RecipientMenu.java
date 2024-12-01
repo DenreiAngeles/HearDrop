@@ -26,18 +26,18 @@ public class RecipientMenu extends BaseMenu {
     }
 
     @Override
-    public void handleChoice(int choice) {
+    public void handleChoice(String choice) {
         switch (choice) {
-            case 1: 
+            case "1": 
                 recipientService.viewAvailableItems();
                 break;
-            case 2: 
+            case "2": 
                 recipientService.reserveItem(recipientUsername);
                 break;
-            case 3: 
+            case "3": 
                 recipientService.viewMyReservedItems(recipientUsername);
                 break;
-            case 4: 
+            case "4": 
                 recipientService.removeReservedItem(recipientUsername);
                 break;
             default: 
@@ -46,7 +46,7 @@ public class RecipientMenu extends BaseMenu {
     }
 
     @Override
-    protected int getExitChoice() {
-        return 5;
+    protected String getExitChoice() {
+        return "5";
     }
 }

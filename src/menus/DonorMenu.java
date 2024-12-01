@@ -27,18 +27,18 @@ public class DonorMenu extends BaseMenu {
     }
 
     @Override
-    public void handleChoice(int choice) {
+    public void handleChoice(String choice) {
         switch (choice) {
-            case 1:
+            case "1":
                 donorService.donateItem(donorId, username);
                 break;
-            case 2: 
+            case "2": 
                 donorService.viewMyDonatedItems(donorId);
                 break;
-            case 3:
+            case "3":
                 donorService.editDonatedItem(donorId);
                 break;
-            case 4:
+            case "4":
                 donorService.removeDonatedItem(donorId);
                 break;
             default: 
@@ -47,7 +47,7 @@ public class DonorMenu extends BaseMenu {
     }
 
     @Override
-    protected int getExitChoice() {
-        return 5;
+    protected String getExitChoice() {
+        return "5";
     }
 }

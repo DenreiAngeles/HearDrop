@@ -72,85 +72,96 @@ public class UserService {
 
 
     public void loginUser() {
-            try {
-        System.out.println();
-        System.out.print("Enter username (or type 'exit' or '0' to cancel): ");
-        String username = scanner.nextLine();
-
-        if (username.equalsIgnoreCase("exit") || username.equals("0")) {
-            System.out.println("Login canceled.");
-            return;
-        }
-
-        while (username.isEmpty()) {
-            System.out.println("Username cannot be empty. Please enter your username.");
-            System.out.print("Enter username: ");
-            username = scanner.nextLine();
+        try {
+            System.out.println();
+            System.out.print("Enter username (or type 'exit' or '0' to cancel): ");
+            String username = scanner.nextLine();
+    
             if (username.equalsIgnoreCase("exit") || username.equals("0")) {
                 System.out.println("Login canceled.");
                 return;
             }
-        }
-
-        System.out.print("Enter password (or type 'exit' or '0' to cancel): ");
-        String password = scanner.nextLine();
-
-        if (password.equalsIgnoreCase("exit") || password.equals("0")) {
-            System.out.println("Login canceled.");
-            return;
-        }
-
-        while (password.isEmpty()) {
-            System.out.println("Password cannot be empty. Please enter your password.");
-            System.out.print("Enter password: ");
-            password = scanner.nextLine();
+    
+            while (username.isEmpty()) {
+                System.out.println("Username cannot be empty. Please enter your username.");
+                System.out.print("Enter username: ");
+                username = scanner.nextLine();
+                if (username.equalsIgnoreCase("exit") || username.equals("0")) {
+                    System.out.println("Login canceled.");
+                    return;
+                }
+            }
+    
+            System.out.print("Enter password (or type 'exit' or '0' to cancel): ");
+            String password = scanner.nextLine();
+    
             if (password.equalsIgnoreCase("exit") || password.equals("0")) {
                 System.out.println("Login canceled.");
                 return;
             }
-        }
-
-        User user = userDAO.loginUser(username, password);
-        if (user == null) {
-            System.out.println("Invalid credentials. Please try again.");
-            return;
-        }
-
-        System.out.println("Login successful!");
-        DesignUtils.clearScreen(1000);
-        System.out.println("------------------------");
-        System.out.println("Please Choose your Role:");
-        System.out.println("------------------------\n");
-        System.out.println("1. Donor");
-        System.out.println("2. Recipient");
-
-        System.out.print("Enter your role: ");
-        String roleInput = scanner.nextLine();
-        int role;
-
-        try {
-            role = Integer.parseInt(roleInput);
-        } catch (NumberFormatException e) {
-            System.out.println("Invalid input. Returning to main menu.");
-            return;
-        }
-
-        switch (role) {
-            case 1:
-                BaseMenu donorMenu = new DonorMenu(user.getId(), user.getUsername());
-                donorMenu.show();
-                break;
-            case 2:
-                BaseMenu recipientMenu = new RecipientMenu(user.getUsername());
-                recipientMenu.show();
-                break;
-            default:
-                System.out.println("Invalid choice. Returning to main menu.");
-                DesignUtils.clearScreen(1000);
+    
+            while (password.isEmpty()) {
+                System.out.println("Password cannot be empty. Please enter your password.");
+                System.out.print("Enter password: ");
+                password = scanner.nextLine();
+                if (password.equalsIgnoreCase("exit") || password.equals("0")) {
+                    System.out.println("Login canceled.");
+                    return;
+                }
+            }
+    
+            User user = userDAO.loginUser(username, password);
+            if (user == null) {
+                System.out.println("Invalid credentials. Please try again.");
+                return;
+            }
+    
+            System.out.println("Login successful!");
+            DesignUtils.clearScreen(1000);
+    
+            while (true) {
+                System.out.println("------------------------");
+                System.out.println("Please Choose your Role:");
+                System.out.println("------------------------");
+                System.out.println("Type 'exit' or '0' to cancel.\n");
+                System.out.println("1. Donor");
+                System.out.println("2. Recipient\n");
+    
+                System.out.print("Enter your role: ");
+                String roleInput = scanner.nextLine();
+    
+                if (roleInput.equalsIgnoreCase("exit") || roleInput.equals("0")) {
+                    System.out.println("Role selection canceled.");
+                    return;
+                }
+    
+                int role;
+                try {
+                    role = Integer.parseInt(roleInput);
+                } catch (NumberFormatException e) {
+                    System.out.println("Invalid input. Please enter a valid role.");
+                    DesignUtils.clearScreen(1000);
+                    continue;
+                }
+    
+                switch (role) {
+                    case 1:
+                        BaseMenu donorMenu = new DonorMenu(user.getId(), user.getUsername());
+                        donorMenu.show();
+                        return;
+                    case 2:
+                        BaseMenu recipientMenu = new RecipientMenu(user.getUsername());
+                        recipientMenu.show();
+                        return; 
+                    default:
+                        System.out.println("Invalid choice. Please enter a valid role.");
+                        DesignUtils.clearScreen(1000);
+                }
             }
         } catch (Exception e) {
-        System.out.println("An error occurred during login. Please try again.");
-        LogUtils.logError(e);
+            System.out.println("An error occurred during login. Please try again.");
+            LogUtils.logError(e);
         }
     }
 }
+    
