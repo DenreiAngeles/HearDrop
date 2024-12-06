@@ -38,7 +38,7 @@ The system simplifies the donation process, ensuring efficient distribution of r
 
 ---
 ## Features 
-![Features](images/4.png)
+![Features](images/3.png)
 
 ### Donor Features 
 | **Feature**           | **Description**                                                                 |
@@ -61,7 +61,7 @@ The system simplifies the donation process, ensuring efficient distribution of r
 
 ---
 ## How It Works 
-![How it Works](images/5.png)
+![How it Works](images/4.png)
 
 ### Step 1: User Registration  
 - Users register to the system with a unique username and a password.
@@ -126,7 +126,7 @@ The system simplifies the donation process, ensuring efficient distribution of r
 
 ---
 ## OOP Principles 
-![OOP Principles](images/7.png)
+![OOP Principles](images/5.png)
 
 ### Encapsulation
 Encapsulation restricts direct access to some of an object's components, ensuring sensitive data is private and accessible through getter and setter methods. 
@@ -418,7 +418,7 @@ public class DonationDAO extends BaseDAO {
 
 ---
 ## Setup Instructions 
-![Setup Instructions](images/8.png)
+![Setup Instructions](images/6.png)
 
 ### Prerequisites
 You must have downloaded and has set-up the following in order to continue:
@@ -452,7 +452,7 @@ You must have downloaded and has set-up the following in order to continue:
 
 ---
 ## System Modules 
-![System Modules](images/9.png)
+![System Modules](images/7.png)
 ### System Directory Structure
 ```plaintext
 ├── src/
@@ -533,7 +533,7 @@ This project contains seven (7) packages and fifteen (15) modules all working to
 
 ---
 ## SDG Implementation 
-![SDG Implementation](images/10.png)
+![SDG Implementation](images/8.png)
 
 ### This project focuses on two key Sustainable Development Goals (SDGs):
 
@@ -557,7 +557,7 @@ This project contains seven (7) packages and fifteen (15) modules all working to
 
 ---
 ## Tech Used 
-![Tech Used](images/6.png)
+![Tech Used](images/9.png)
 
 - **Programming Language**: Java ☕
 - **Database Management System**: MySQL 🛢️🐬
@@ -568,8 +568,9 @@ This project contains seven (7) packages and fifteen (15) modules all working to
 ---
 
 ## About the Developer
+![About the developer](images/12.png)
 
-Hey there! I'm **Denrei**, the sole developer behind HearDrop. HearDrop was born because of my Object-Oriented Programming (OOP) course. I was tasked to create a console program that would adhere OOP principles while attaining Sustainable Development Goals. So I did, and it has been a blast creating this project that could potentially be able to help not only me from my academics but also to the community.
+Hey there! I'm **Denrei**, the sole developer behind HearDrop. HearDrop was born because of my Object-Oriented Programming (OOP) final project. I was tasked to create a console program that would adhere OOP principles while attaining Sustainable Development Goals. So I did, and it has been a blast creating this project that could potentially be able to help not only me from my academics but also to the community.
 
 I designed HearDrop to facilitate resource sharing within communities, promoting sustainability and helping those in need. Although it only still has the basic components that I have planned on making, I'm passionate about developing it, and finishing it up to this point reflects that commitment.
 

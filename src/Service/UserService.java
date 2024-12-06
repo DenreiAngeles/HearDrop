@@ -105,7 +105,7 @@ public class UserService {
                 System.out.print("Enter password: ");
                 password = scanner.nextLine();
                 if (password.equalsIgnoreCase("exit") || password.equals("0")) {
-                    System.out.println("Login canceled.");
+                    System.out.println("Login cancelled.");
                     return;
                 }
             }
