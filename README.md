@@ -1,4 +1,4 @@
-![Project Logo](images/1.png)
+![Project Logo](images/title.png)
 ## Project Overview
 **HearDrop** is a console-based donation matching system aimed at connecting donors with recipients. This project aligns with two Sustainable Development Goals:
 - **SDG 2: Zero Hunger** 🥗
